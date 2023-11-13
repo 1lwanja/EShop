@@ -24,7 +24,7 @@ else
 
     protected override void OnParametersSet()
     {
-        if (CategoryUrl is null)
+        if (CategoryUrl != null)
         {
             category = CategoryService.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
         }
