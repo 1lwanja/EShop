@@ -2,9 +2,9 @@
 
 namespace BlazingShop.Client.Services.CategoryService
 {
-    public interface ICategoryService
+    interface ICategoryService
     {
         List<Category> Categories { get; set;  }
-        void LoadCategories();
+        Task LoadCategories();
     }
 }

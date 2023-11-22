@@ -1,4 +1,5 @@
-﻿@inject ICategoryService CategoryService
+﻿@using System.Text.Json;
+@inject ICategoryService CategoryService
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -39,8 +40,26 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        CategoryService.LoadCategories();
+        try
+        {
+            await CategoryService.LoadCategories();
+        }
+        catch (HttpRequestException ex)
+        {
+            // Log or handle the HTTP request exception
+            Console.WriteLine($"HTTP request error: {ex.Message}");
+        }
+        catch (JsonException ex)
+        {
+            // Log or handle the JSON deserialization exception
+            Console.WriteLine($"JSON deserialization error: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Log or handle any other exceptions
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
     }
 }
