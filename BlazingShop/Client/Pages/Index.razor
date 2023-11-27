@@ -6,7 +6,7 @@
 @if (category != null)
 {
     <h1>Welcome to the @category.Name section!</h1>
-    <ProductList  />
+    <ProductList />
 } 
 else
 {
@@ -26,6 +26,7 @@ else
     protected override async Task OnParametersSetAsync()
     {
         await ProductService.LoadProducts(CategoryUrl);
+
         if (CategoryUrl != null)
         {
             category = CategoryService.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));

@@ -1,33 +1,30 @@
 ﻿@using System.Text.Json;
 @inject ICategoryService CategoryService
 
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazingShop</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Blazing Shop</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
-        </div>
+        </li>
         <li class="dropdown-divider"></li>
         @foreach (var category in CategoryService.Categories)
         {
-            <div class="nav-item px-3">
+            <li class="nav-item px-3">
                 <NavLink class="nav-link" href="@category.Url">
                     <span class="oi oi-@category.Icon" aria-hidden="true"></span> @category.Name
                 </NavLink>
-            </div>
+            </li>
         }
-
-    </nav>
+            </ul>
 </div>
 
 @code {
@@ -42,24 +39,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            await CategoryService.LoadCategories();
-        }
-        catch (HttpRequestException ex)
-        {
-            // Log or handle the HTTP request exception
-            Console.WriteLine($"HTTP request error: {ex.Message}");
-        }
-        catch (JsonException ex)
-        {
-            // Log or handle the JSON deserialization exception
-            Console.WriteLine($"JSON deserialization error: {ex.Message}");
-        }
-        catch (Exception ex)
-        {
-            // Log or handle any other exceptions
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
+        await CategoryService.LoadCategories();
     }
+
+    // private async void Logout()
+    // {
+    //     await LocalStorage.RemoveItemAsync("username");
+    //     await AuthStateProvider.GetAuthenticationStateAsync();
+    // }
 }

@@ -4,6 +4,7 @@ using BlazingShop.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazingShop.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231123112729_EditionSeeding")]
+    partial class EditionSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,36 +93,31 @@ namespace BlazingShop.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Default"
-                        },
-                        new
-                        {
-                            Id = 2,
                             Name = "Paperback"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 2,
                             Name = "E-Book"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 3,
                             Name = "Audiobook"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 4,
                             Name = "PC"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 5,
                             Name = "PlayStation"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 6,
                             Name = "Xbox"
                         });
                 });
@@ -155,6 +153,12 @@ namespace BlazingShop.Server.Migrations
                     b.Property<bool>("IsPublic")
                         .HasColumnType("bit");
 
+                    b.Property<decimal>("OriginalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -170,24 +174,28 @@ namespace BlazingShop.Server.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2023, 11, 24, 12, 38, 55, 354, DateTimeKind.Local).AddTicks(780),
+                            DateCreated = new DateTime(2023, 11, 23, 14, 27, 28, 821, DateTimeKind.Local).AddTicks(8240),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The Hitchhiker's Guide to the Galaxy (sometimes referred to as HG2G, HHGTTG, HG2G' or tHGttG) Is a comedy science fiction series",
-                            Image = "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
+                            Image = "https://upload.wikimedia.org/wikimedia/en/b/bd/H2G2_UK_front_cover.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 19.99m,
+                            Price = 9.99m,
                             Title = "The Hitchhiker's Guide to the Galaxy"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2023, 11, 24, 12, 38, 55, 354, DateTimeKind.Local).AddTicks(799),
+                            DateCreated = new DateTime(2023, 11, 23, 14, 27, 28, 821, DateTimeKind.Local).AddTicks(8267),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Half-Life 2 is a 2004 first-person shooter game developed and published by Valve. Like the original Half-Life, it combines shooting",
-                            Image = "https://upload.wikimedia.org/wikipedia/en/a/a4/Ready_Player_One_cover.jpg",
+                            Image = "https://half-life.fandom.com/wiki/The_G-Man",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 29.99m,
+                            Price = 8.19m,
                             Title = "Half-Life 2"
                         },
                         new
@@ -200,6 +208,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/c/c3/1984first.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Nineteen Eighty-Four"
                         },
                         new
@@ -212,6 +222,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Honeywell-Pentax-Spotmatic.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Pentax Spotmatic"
                         },
                         new
@@ -224,6 +236,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox-console.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Xbox"
                         },
                         new
@@ -236,6 +250,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Super Nintendo Entertainment System"
                         },
                         new
@@ -248,6 +264,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Half-Life 2"
                         },
                         new
@@ -260,6 +278,8 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/d/d5/Diablo_II_Coverart.png",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Diablo II"
                         },
                         new
@@ -272,121 +292,66 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/7/79/Day_of_the_Tentacle_artwork.jpg",
                             IsDeleted = false,
                             IsPublic = false,
+                            OriginalPrice = 0m,
+                            Price = 0m,
                             Title = "Day of the Tentacle"
                         });
                 });
 
-            modelBuilder.Entity("BlazingShop.Shared.ProductVariant", b =>
+            modelBuilder.Entity("EditionProduct", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("EditionsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EditionId")
+                    b.Property<int>("ProductsId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("OriginalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.HasKey("EditionsId", "ProductsId");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.HasIndex("ProductsId");
 
-                    b.HasKey("ProductId", "EditionId");
-
-                    b.HasIndex("EditionId");
-
-                    b.ToTable("ProductVariant");
+                    b.ToTable("EditionProduct");
 
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
-                            EditionId = 2,
-                            OriginalPrice = 19.99m,
-                            Price = 9.99m
+                            EditionsId = 1,
+                            ProductsId = 1
                         },
                         new
                         {
-                            ProductId = 1,
-                            EditionId = 3,
-                            OriginalPrice = 0m,
-                            Price = 7.99m
+                            EditionsId = 2,
+                            ProductsId = 1
                         },
                         new
                         {
-                            ProductId = 1,
-                            EditionId = 4,
-                            OriginalPrice = 29.99m,
-                            Price = 19.99m
+                            EditionsId = 3,
+                            ProductsId = 1
                         },
                         new
                         {
-                            ProductId = 2,
-                            EditionId = 2,
-                            OriginalPrice = 14.99m,
-                            Price = 7.99m
+                            EditionsId = 1,
+                            ProductsId = 2
                         },
                         new
                         {
-                            ProductId = 3,
-                            EditionId = 2,
-                            OriginalPrice = 0m,
-                            Price = 6.99m
+                            EditionsId = 2,
+                            ProductsId = 2
                         },
                         new
                         {
-                            ProductId = 4,
-                            EditionId = 1,
-                            OriginalPrice = 249.00m,
-                            Price = 166.66m
+                            EditionsId = 4,
+                            ProductsId = 7
                         },
                         new
                         {
-                            ProductId = 5,
-                            EditionId = 1,
-                            OriginalPrice = 299m,
-                            Price = 159.99m
+                            EditionsId = 5,
+                            ProductsId = 7
                         },
                         new
                         {
-                            ProductId = 6,
-                            EditionId = 1,
-                            OriginalPrice = 400m,
-                            Price = 73.74m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            EditionId = 5,
-                            OriginalPrice = 29.99m,
-                            Price = 19.99m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            EditionId = 6,
-                            OriginalPrice = 0m,
-                            Price = 69.99m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            EditionId = 7,
-                            OriginalPrice = 59.99m,
-                            Price = 49.99m
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            EditionId = 5,
-                            OriginalPrice = 24.99m,
-                            Price = 9.99m
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            EditionId = 5,
-                            OriginalPrice = 0m,
-                            Price = 14.99m
+                            EditionsId = 6,
+                            ProductsId = 7
                         });
                 });
 
@@ -401,28 +366,19 @@ namespace BlazingShop.Server.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BlazingShop.Shared.ProductVariant", b =>
+            modelBuilder.Entity("EditionProduct", b =>
                 {
-                    b.HasOne("BlazingShop.Shared.Edition", "Edition")
+                    b.HasOne("BlazingShop.Shared.Edition", null)
                         .WithMany()
-                        .HasForeignKey("EditionId")
+                        .HasForeignKey("EditionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BlazingShop.Shared.Product", "Product")
-                        .WithMany("Variants")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("BlazingShop.Shared.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Edition");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("BlazingShop.Shared.Product", b =>
-                {
-                    b.Navigation("Variants");
                 });
 #pragma warning restore 612, 618
         }
