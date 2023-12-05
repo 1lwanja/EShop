@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Cart.razor" />
     <Content Remove="Shared\BlazoredToasts.razor" />
     <Content Remove="Shared\TopMenu.razor" />
   </ItemGroup>
@@ -27,12 +28,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Cart.razor" />
     <_ContentIncludedByDefault Remove="Shared\BlazoredToasts.razor" />
     <_ContentIncludedByDefault Remove="Shared\ProductList.razor" />
     <_ContentIncludedByDefault Remove="Shared\TopMenu.razor" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Cart.razor" />
     <None Include="Shared\BlazoredToasts.razor" />
     <None Include="Shared\ProductList.razor" />
     <None Include="Shared\TopMenu.razor" />
@@ -44,6 +47,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Shared\TopMenu.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Cart.razor" />
   </ItemGroup>
 
 </Project>
