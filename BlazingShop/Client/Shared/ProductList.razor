@@ -1,7 +1,5 @@
-﻿@using BlazingShop.Shared;
-@inject IProductService ProductService
+﻿﻿@inject IProductService ProductService
 @implements IDisposable
-
 
 <ul class="list-unstyled">
     @foreach (var product in ProductService.Products)
@@ -40,16 +38,15 @@
     private string GetPriceText(Product product)
     {
         var variants = product.Variants;
-        if (variants.Count == 0 )
+        if (variants.Count == 0)
         {
             return string.Empty;
         }
         else if (variants.Count == 1)
         {
-            return $"$(variants[0].Price";
+            return $"${variants[0].Price}";
         }
         decimal minPrice = variants.Min(v => v.Price);
-        return $"starting at ${minPrice}";
+        return $"Starting at ${minPrice}";
     }
-
 }

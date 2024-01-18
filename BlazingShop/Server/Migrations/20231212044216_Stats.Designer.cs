@@ -4,6 +4,7 @@ using BlazingShop.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazingShop.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231212044216_Stats")]
+    partial class Stats
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,9 +162,6 @@ namespace BlazingShop.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Views")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -173,27 +173,25 @@ namespace BlazingShop.Server.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2023, 12, 13, 9, 0, 51, 732, DateTimeKind.Local).AddTicks(9782),
+                            DateCreated = new DateTime(2023, 12, 12, 7, 42, 16, 745, DateTimeKind.Local).AddTicks(6757),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The Hitchhiker's Guide to the Galaxy (sometimes referred to as HG2G, HHGTTG, HG2G' or tHGttG) Is a comedy science fiction series",
                             Image = "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "The Hitchhiker's Guide to the Galaxy",
-                            Views = 0
+                            Title = "The Hitchhiker's Guide to the Galaxy"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2023, 12, 13, 9, 0, 51, 732, DateTimeKind.Local).AddTicks(9802),
+                            DateCreated = new DateTime(2023, 12, 12, 7, 42, 16, 745, DateTimeKind.Local).AddTicks(6777),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Half-Life 2 is a 2004 first-person shooter game developed and published by Valve. Like the original Half-Life, it combines shooting",
                             Image = "https://upload.wikimedia.org/wikipedia/en/a/a4/Ready_Player_One_cover.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Half-Life 2",
-                            Views = 0
+                            Title = "Half-Life 2"
                         },
                         new
                         {
@@ -205,8 +203,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/c/c3/1984first.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Nineteen Eighty-Four",
-                            Views = 0
+                            Title = "Nineteen Eighty-Four"
                         },
                         new
                         {
@@ -218,8 +215,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Honeywell-Pentax-Spotmatic.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Pentax Spotmatic",
-                            Views = 0
+                            Title = "Pentax Spotmatic"
                         },
                         new
                         {
@@ -231,8 +227,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox-console.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Xbox",
-                            Views = 0
+                            Title = "Xbox"
                         },
                         new
                         {
@@ -244,8 +239,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Super Nintendo Entertainment System",
-                            Views = 0
+                            Title = "Super Nintendo Entertainment System"
                         },
                         new
                         {
@@ -257,8 +251,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Half-Life 2",
-                            Views = 0
+                            Title = "Half-Life 2"
                         },
                         new
                         {
@@ -270,8 +263,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/d/d5/Diablo_II_Coverart.png",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Diablo II",
-                            Views = 0
+                            Title = "Diablo II"
                         },
                         new
                         {
@@ -283,8 +275,7 @@ namespace BlazingShop.Server.Migrations
                             Image = "https://upload.wikimedia.org/wikipedia/en/7/79/Day_of_the_Tentacle_artwork.jpg",
                             IsDeleted = false,
                             IsPublic = false,
-                            Title = "Day of the Tentacle",
-                            Views = 0
+                            Title = "Day of the Tentacle"
                         });
                 });
 

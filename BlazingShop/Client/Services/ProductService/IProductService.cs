@@ -1,4 +1,8 @@
 ﻿using BlazingShop.Shared;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlazingShop.Client.Services.ProductService
 {
@@ -7,6 +11,7 @@ namespace BlazingShop.Client.Services.ProductService
         event Action OnChange;
         List<Product> Products { get; set; }
         Task LoadProducts(string categoryUrl = null);
-        Task<Product> GetProductById(int id);
+        Task<Product> GetProduct(int id);
+        Task<List<Product>> SearchProducts(string searchText);
     }
 }
